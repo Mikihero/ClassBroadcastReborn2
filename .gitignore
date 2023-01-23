@@ -1,0 +1,8 @@
+.idea/
+.bin/
+bin/
+obj/
+packages/
+Properties/
+Folder.DotSettings.user
+packages.config

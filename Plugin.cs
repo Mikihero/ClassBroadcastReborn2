@@ -1,32 +1,31 @@
 ﻿using Exiled.API.Features;
-using Exiled.CreditTags;
 using System;
 
 namespace ClassBroadcast
 {
     public class Plugin : Plugin<Config>
     {
-        public override string Name { get; } = "ClassBroadcast";
-        public override string Author => "VersLugia";
-        public override Version Version => new Version(1, 1, 0);
-        public override Version RequiredExiledVersion => new Version(4, 0, 0);
+        public override string Name => "ClassBroadcastReborn2";
+        public override string Author => "VersLugia, updated by Miki_hero";
+        public override Version Version => new Version(1,0,0,0);
+        public override Version RequiredExiledVersion => new Version(6, 0, 0,0);
 
-        public static Plugin Singleton;
-        private EventHandlers events;
+        public static Plugin Instance;
+        private EventHandlers _eventHandlers;
 
         public override void OnEnabled()
         {
-            Singleton = this;
-            events = new EventHandlers();
-            Exiled.Events.Handlers.Player.ChangingRole += events.OnPlayerChangeRole;
+            Instance = this;
+            _eventHandlers = new EventHandlers();
+            Exiled.Events.Handlers.Player.ChangingRole += _eventHandlers.OnPlayerChangeRole;
             base.OnEnabled();
         }
 
         public override void OnDisabled()
         {
-            Exiled.Events.Handlers.Player.ChangingRole -= events.OnPlayerChangeRole;
-            events = null;
-            Singleton = null;
+            Exiled.Events.Handlers.Player.ChangingRole -= _eventHandlers.OnPlayerChangeRole;
+            _eventHandlers = null;
+            Instance = null;
             base.OnDisabled();
         }
     }

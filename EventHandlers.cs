@@ -1,10 +1,5 @@
-﻿using Exiled.Events.EventArgs;
-using MEC;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MEC;
+using Exiled.Events.EventArgs.Player;
 
 namespace ClassBroadcast
 {
@@ -12,19 +7,19 @@ namespace ClassBroadcast
     {
         public void OnPlayerChangeRole(ChangingRoleEventArgs ev)
         {
-            if (Plugin.Singleton.Config.Class_Bc.TryGetValue(ev.NewRole, out string ClassBc))
+            if (Plugin.Instance.Config.Class_Bc.TryGetValue(ev.NewRole, out string classBc))
             {
-                if (Plugin.Singleton.Config.BroadcastType.Contains("Broadcast"))
+                if (Plugin.Instance.Config.BroadcastType.Contains("Broadcast"))
                 {
-                    ev.Player.Broadcast(Plugin.Singleton.Config.BcTime, ClassBc);
+                    ev.Player.Broadcast(Plugin.Instance.Config.BcTime, classBc);
                 }
-                else if (Plugin.Singleton.Config.BroadcastType.Contains("Window"))
+                else if (Plugin.Instance.Config.BroadcastType.Contains("Window"))
                 {
-                    Timing.CallDelayed(1f, () => ev.Player.OpenReportWindow(ClassBc));
+                    Timing.CallDelayed(1f, () => ev.Player.OpenReportWindow(classBc));
                 }
                 else
                 {
-                    ev.Player.ShowHint(ClassBc, Plugin.Singleton.Config.BcTime);
+                    ev.Player.ShowHint(classBc, Plugin.Instance.Config.BcTime);
                 }
             }
         }
