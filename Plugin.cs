@@ -7,7 +7,7 @@ namespace ClassBroadcast
     {
         public override string Name => "ClassBroadcastReborn2";
         public override string Author => "VersLugia, updated by Miki_hero";
-        public override Version Version => new Version(1,0,0,0);
+        public override Version Version => new Version(1,2,0,0);
         public override Version RequiredExiledVersion => new Version(6, 0, 0,0);
 
         public static Plugin Instance;
