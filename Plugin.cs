@@ -1,7 +1,7 @@
 ﻿using Exiled.API.Features;
 using System;
 
-namespace ClassBroadcast
+namespace ClassBroadcastReborn2
 {
     public class Plugin : Plugin<Config>
     {

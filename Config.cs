@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using PlayerRoles;
 
-namespace ClassBroadcast
-{
-    public class Config : IConfig
-    {
+namespace ClassBroadcastReborn2
+     {
+         public class Config : IConfig
+         {
         [Description("Is enabled?")]
         public bool IsEnabled { get; set; } = true;
 

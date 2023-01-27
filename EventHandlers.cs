@@ -1,7 +1,7 @@
 ﻿using MEC;
 using Exiled.Events.EventArgs.Player;
 
-namespace ClassBroadcast
+namespace ClassBroadcastReborn2
 {
     class EventHandlers
     {
